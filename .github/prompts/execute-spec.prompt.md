@@ -4,7 +4,7 @@ description: Modelo reutilizável para executar qualquer spec. Basta alterar o S
 ---
 
 Configuração
-- SPEC_NAME: 001-create-foundation
+- SPEC_NAME: 002-manage-properties
 
 Regra de resolução de caminhos:
 - SPEC_DIR = .specify/specs/{SPEC_NAME}
@@ -16,6 +16,7 @@ Fluxo obrigatório
 
 1. Ler e seguir:
   - .github/copilot-instructions.md
+  - AGENTS.md
   - specify/memory/constitution.md
   - {SPEC_FILE}
   - {PLAN_FILE}

@@ -1,7 +1,7 @@
 # Especificação 002 - Gestão de propriedades
 
 ## Status
-Em implementação
+Em implementação (fluxos de listagem, criação e edição concluídos)
 
 ## Dependências
 - 001-create-foundation
