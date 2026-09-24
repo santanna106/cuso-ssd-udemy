@@ -4,7 +4,7 @@ description: Modelo reutilizável para executar qualquer spec. Basta alterar o S
 ---
 
 Configuração
-- SPEC_NAME: 002-manage-properties
+- SPEC_NAME: 004-manage-rentals
 
 Regra de resolução de caminhos:
 - SPEC_DIR = .specify/specs/{SPEC_NAME}

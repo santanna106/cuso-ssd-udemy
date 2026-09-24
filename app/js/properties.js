@@ -37,5 +37,5 @@
   function listProperties(options) {
     options = options || {}; return all().filter(function (item) { return !options.status || item.status === options.status; });
   }
-  window.RealtorProperties = { all: all, find: find, createProperty: createProperty, updateProperty: updateProperty, listProperties: listProperties, validateProperty: validateProperty };
+  window.RealtorProperties = { all: all, find: find, getPropertyById: find, createProperty: createProperty, updateProperty: updateProperty, listProperties: listProperties, validateProperty: validateProperty };
 }());

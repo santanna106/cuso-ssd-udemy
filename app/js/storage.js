@@ -7,6 +7,13 @@
   function write(key, value) { localStorage.setItem(key, JSON.stringify(value)); return value; }
   function now() { return new Date().toISOString(); }
   function createSeedPhotoUrl(id) { return 'https://picsum.photos/seed/' + id + '/800/500'; }
+  function buildTenantRecord(data, overrides) {
+    var timestamp = now(); var record = { id: data.id || 'tenant-' + Date.now(), name: String(data.name || '').trim(), email: String(data.email || '').trim(), phone: String(data.phone || '').trim(), documentId: String(data.documentId || '').trim(), notes: String(data.notes || '').trim(), createdAt: timestamp, updatedAt: timestamp };
+    Object.keys(overrides || {}).forEach(function (key) { record[key] = overrides[key]; });
+    return record;
+  }
+  function getTenants() { return read(keys.tenants, []); }
+  function saveTenants(tenants) { return write(keys.tenants, tenants); }
   function seed() {
     if (!read(keys.properties, null)) {
       var properties = [
@@ -25,5 +32,5 @@
     }
     if (!read(keys.rentals, null)) write(keys.rentals, [{ id: 'rental-01', propertyId: 'prop-02', tenantId: 'tenant-01', startDate: '2026-01-10', endDate: '2027-01-09', rentAmount: 1850, contractStatus: 'ativo', createdAt: now() }, { id: 'rental-02', propertyId: 'prop-05', tenantId: 'tenant-02', startDate: '2026-02-01', endDate: '2027-01-31', rentAmount: 2750, contractStatus: 'ativo', createdAt: now() }]);
   }
-  window.RealtorStorage = { keys: keys, propertyStatuses: propertyStatuses, contractStatuses: contractStatuses, read: function (name) { return read(keys[name], []); }, write: function (name, value) { return write(keys[name], value); }, setFlash: function (message, type) { write(keys.flash, { message: message, type: type || 'success' }); }, takeFlash: function () { var flash = read(keys.flash, null); localStorage.removeItem(keys.flash); return flash; }, createSeedPhotoUrl: createSeedPhotoUrl, seed: seed };
+  window.RealtorStorage = { keys: keys, propertyStatuses: propertyStatuses, contractStatuses: contractStatuses, read: function (name) { return read(keys[name], []); }, write: function (name, value) { return write(keys[name], value); }, getTenants: getTenants, saveTenants: saveTenants, buildTenantRecord: buildTenantRecord, setFlash: function (message, type) { write(keys.flash, { message: message, type: type || 'success' }); }, takeFlash: function () { var flash = read(keys.flash, null); localStorage.removeItem(keys.flash); return flash; }, createSeedPhotoUrl: createSeedPhotoUrl, seed: seed };
 }());

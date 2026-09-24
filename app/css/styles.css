@@ -81,7 +81,16 @@ h2 { font-size: 21px; margin-bottom: 18px; }
 .flash--error { background: var(--danger-soft); color: var(--danger); }
 .toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
 .toolbar label { color: var(--muted); font-size: 13px; font-weight: 700; }
-.toolbar select { border: 1px solid #ccd7d2; border-radius: 7px; padding: 9px 11px; color: var(--ink); background: var(--paper); }
+.toolbar select, .toolbar input { min-width: 220px; border: 1px solid #ccd7d2; border-radius: 7px; padding: 9px 11px; color: var(--ink); background: var(--paper); }
+.tenant-list { display: grid; gap: 12px; }
+.tenant-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.tenant-row h3 { margin-bottom: 7px; font-size: 17px; }
+.tenant-row p { margin-bottom: 5px; color: var(--muted); font-size: 13px; }
+.tenant-row p:last-child { margin-bottom: 0; }
+.tenant-row__notes { max-width: 650px; }
+.tenant-row .button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+#rental-context { max-width: 420px; margin-bottom: 20px; }
+#rental-context .property-card__action { display: none; }
 .form-card { max-width: 760px; padding: 26px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
 .field { display: grid; gap: 7px; }
@@ -92,4 +101,4 @@ h2 { font-size: 21px; margin-bottom: 18px; }
 .form-actions { display: flex; gap: 10px; margin-top: 22px; }
 .empty { padding: 28px; text-align: center; color: var(--muted); }
 @media (max-width: 950px) { .metrics { grid-template-columns: repeat(2, 1fr); } .dashboard-grid { grid-template-columns: 1fr; } .property-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 650px) { .shell { display: block; } .sidebar { position: static; width: auto; padding: 16px; } .brand { padding-bottom: 16px; } .nav { grid-template-columns: repeat(2, 1fr); } .content { width: auto; margin: 0; padding: 25px 16px; } .topbar { display: block; } .topbar .button { margin-top: 16px; } .metrics, .property-grid, .form-grid { grid-template-columns: 1fr; } .field--wide { grid-column: auto; } .toolbar { align-items: stretch; flex-direction: column; } }
+@media (max-width: 650px) { .shell { display: block; } .sidebar { position: static; width: auto; padding: 16px; } .brand { padding-bottom: 16px; } .nav { grid-template-columns: repeat(2, 1fr); } .content { width: auto; margin: 0; padding: 25px 16px; } .topbar { display: block; } .topbar .button { margin-top: 16px; } .metrics, .property-grid, .form-grid { grid-template-columns: 1fr; } .field--wide { grid-column: auto; } .toolbar { align-items: stretch; flex-direction: column; } .toolbar select, .toolbar input { min-width: 0; } .tenant-row { align-items: stretch; flex-direction: column; } }
